@@ -10,6 +10,7 @@ class AcessoAoSistema extends Model
     use HasFactory;
 
     protected $table = 'acesso_sistema';
+
     protected $fillable = [
         'login',
         'senha'

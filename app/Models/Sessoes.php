@@ -14,6 +14,4 @@ class Sessoes extends Model
     protected $fillable = [
         'local'
     ];
-
-    
 }
