@@ -5,16 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Eventos extends Model
+class AcessoAoSistema extends Model
 {
     use HasFactory;
 
-    protected $table = 'eventos';
-    
+    protected $table = 'acesso_sistema';
     protected $fillable = [
-        'nome',
-        'endereco',
-        'descricao',
-        'capacidadeMaxima'
+        'login',
+        'senha'
     ];
 }
