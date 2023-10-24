@@ -16,7 +16,11 @@ após a instalação concluída podemos prosseguir para os proximos passos
 
 Para começar a desenvolver no projeto precisa subir tanto o laravel e tailwind
 
-primeiro laravel 
+primeiro comando para o laravel 
+
+`php artisan key:generate`
+
+Esse comando adiciona uma chave na nossa aplicação 
 
 `php artisan serve`
 
