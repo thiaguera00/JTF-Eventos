@@ -23,9 +23,9 @@ class UsuariosController extends Controller
         ]);
 
         if ($user) {
-            return response()->json(['message' => 'Usuário criado com sucesso'], 201);
+            return redirect()->route('')->with('success');
         } else {
-            return response()->json(['message' => 'Erro ao criar usuário'], 500);
+            return redirect()->route('')->with('error');
         }
     }
 }
