@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/eventos', function () {
+    return view('cadastro');
+});
+
 Route::get('/User', [UsuariosController::class,'index']);
 
 Route::post('/eventos', [EventosController::class,'criarEventos']);
