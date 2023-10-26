@@ -20,8 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/eventos', function () {
+Route::get('/cadastro', function () {
     return view('cadastro');
+});
+
+Route::get('/eventos', function () {
+    return view('eventos');
 });
 
 Route::get('/User', [UsuariosController::class,'index']);
