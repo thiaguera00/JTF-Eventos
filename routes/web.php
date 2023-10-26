@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AcessoAoSistemaController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
@@ -17,14 +18,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('eventos');
+})->name('eventos');
 
 Route::get('/cadastro', function () {
-    return view('cadastro');
-});
+    return view('cadastroUsuarios');
+})->name('cadastro');
+
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
 Route::post('/User', [UsuariosController::class,'cadastroUsuario'])->name('cadastroUsuario');
 
 Route::post('/eventos', [EventosController::class,'criarEventos']);
+
+Route::post('/acesso', [AcessoAoSistemaController::class, 'login'])->name('acessoSistema');
 
