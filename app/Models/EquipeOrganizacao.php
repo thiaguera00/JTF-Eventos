@@ -9,6 +9,8 @@ class EquipeOrganizacao extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+    
     protected $table = 'equipe_organizacao';
 
     protected $fillable = [

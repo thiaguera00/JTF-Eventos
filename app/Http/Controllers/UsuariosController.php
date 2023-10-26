@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AcessoAoSistema;
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
 
@@ -13,19 +14,31 @@ class UsuariosController extends Controller
         return Usuarios::all();
     }
 
-    public function criarUsuario(Request $request)
+    public function cadastroUsuario(Request $request)
     {
-        $user = Usuarios::create([
-            'CPF' => $request->CPF,
-            'nome' => $request->nome,
-            'email' => $request->email,
-            'telefone' => $request->telefone
+        $request->validate([
+            'cpf' => 'required',
+            'nome' => 'required',
+            'email' => 'required|email',
+            'telefone' => 'required',
+            'senha' => 'required',
         ]);
 
-        if ($user) {
-            return redirect()->route('')->with('success');
-        } else {
-            return redirect()->route('')->with('error');
-        }
+       $usuarios = Usuarios::create([
+        'cpf' => $request->cpf,
+        'nome' => $request->nome,
+        'email' => $request->email,
+        'telefone' => $request->telefone,
+       ]);
+
+       $acessos = AcessoAoSistema::create([
+        'login' => $request->email,
+        'senha' => bcrypt($request->senha),
+       ]);
+
+      if ($usuarios && $acessos) {
+        return redirect()->route('welcome')->with('success', 202);
+      }
+       return back()->with(['error' => 'As crendencias fornecidas estão invalidas']);
     }
 }

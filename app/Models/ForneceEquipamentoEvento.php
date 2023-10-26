@@ -9,6 +9,8 @@ class ForneceEquipamentoEvento extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+    
     protected $table = 'fornece_equipamento_evento';
 
     protected $fillable = [

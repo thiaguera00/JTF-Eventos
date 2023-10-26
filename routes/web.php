@@ -24,7 +24,7 @@ Route::get('/eventos', function () {
     return view('cadastro');
 });
 
-Route::get('/User', [UsuariosController::class,'index']);
+Route::post('/User', [UsuariosController::class,'cadastroUsuario'])->name('cadastroUsuario');
 
 Route::post('/eventos', [EventosController::class,'criarEventos']);
 

@@ -9,8 +9,10 @@ class Usuarios extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+    
     protected $fillable = [
-        'CPF',
+        'cpf',
         'nome',
         'email',
         'telefone',
