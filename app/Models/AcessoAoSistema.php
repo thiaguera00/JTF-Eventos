@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class AcessoAoSistema extends Model
 {
     use HasFactory;
-
+    
+    public $timestamps = false;
     protected $table = 'acesso_sistema';
 
     protected $fillable = [

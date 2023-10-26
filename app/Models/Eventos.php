@@ -9,6 +9,8 @@ class Eventos extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+    
     protected $table = 'eventos';
     
     protected $fillable = [
