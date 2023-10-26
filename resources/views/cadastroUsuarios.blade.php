@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #C084FC
-    }
-  </style>
 </head>
 <body>
  
@@ -28,6 +23,7 @@
                   <div class="text-center mb-10">
                       <h1 class="font-bold text-3xl text-gray-900">CADASTRO</h1>
                       <p>Insira suas informações</p>
+                      <p>Clique <a href="{{route('login')}}">aqui</a> se já fez seu cadastro</p>
                   </div>
                   <div>
                 @if ($errors->any())
