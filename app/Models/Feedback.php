@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sessoes extends Model
+class Feedback extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
-    
-    protected $table = 'sessoes';
+    protected $table = 'feedback';
 
     protected $fillable = [
         'id_evento',
-        'turno'
+        'nota',
+        'comentario'
     ];
-
+    
     public function evento()
     {
         return $this->belongsTo(Eventos::class, 'id_evento', 'id');
     }
+
 }
