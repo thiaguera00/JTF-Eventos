@@ -42,5 +42,11 @@ Route::post('/eventos', [EventosController::class,'criarEventos'])->name('criarE
 
 Route::get('/eventos/{id}', [EventosController::class,'visualizarEvento'])->name('detalhes.eventos');
 
+Route::post('/eventos/editar/{id}', [EventosController::class, 'editarEvento'])->name('editarEvento.post');
+
+Route::post('/eventos/excluir/{id}', [EventosController::class, 'excluirEvento'])->name('excluir.eventos');
+
 Route::post('/acesso', [AcessoAoSistemaController::class, 'login'])->name('acessoSistema');
+
+Route::get('/eventos/editar/{id}', [EventosController::class, 'editarEventoForm'])->name('editarEvento');
 

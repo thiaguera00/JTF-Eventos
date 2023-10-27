@@ -19,6 +19,17 @@ class EventosController extends Controller
 
     }
 
+    public function editarEventoForm(int $id)
+    {
+        $eventos = Eventos::find($id);
+
+        if ($eventos) {
+            return view('editarEventos', ['eventos' => $eventos]);
+        }
+
+        return abort(404);
+    }
+
     public function listarEventos()
     {
         $eventos = Eventos::all();
@@ -48,24 +59,29 @@ class EventosController extends Controller
         }
     }
 
-    public function editarEvento(int $id, Request $request)
+    public function editarEvento(Request $request, int $id)
     {
-        $alteracoes = [ 
-            'nome' => $request->nome,
-            'endereco' => $request->endereco,
-            'descricao' => $request->descricao,
-            'capacidadeMaxima' => $request->capacidadeMaxima
-        ];
-        
+        $request->validate([
+            'nome' => 'required',
+            'endereco' => 'required',
+            'descricao' => 'required',
+            'capacidadeMaxima' => 'required',
+        ]);
+    
         $eventos = Eventos::find($id);
-
+    
         if ($eventos) {
-            $eventos->update($alteracoes);
-
+            $eventos->update([
+                'nome' => $request->nome,
+                'endereco' => $request->endereco,
+                'descricao' => $request->descricao,
+                'capacidadeMaxima' => $request->capacidadeMaxima
+            ]);
+    
             return redirect()->route('eventos');
         } else {
-            return redirect()->back()->withErrors(['error'=> 'Alteracoes não foi feitas']);
-        } 
+            return redirect()->back()->withErrors(['error' => 'Evento não encontrado']);
+        }
     }
 
     public function excluirEvento(Request $request)
