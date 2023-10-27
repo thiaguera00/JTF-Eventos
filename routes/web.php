@@ -21,6 +21,10 @@ Route::get('/', function () {
     return view('eventos');
 })->name('eventos');
 
+Route::get('/cadastrarEvento', function () {
+    return view('cadastroEventos');
+})->name('cadastrarEvento');
+
 Route::get('/cadastro', function () {
     return view('cadastroUsuarios');
 })->name('cadastro');
@@ -35,7 +39,9 @@ Route::get('/editaEvento', function () {
 
 Route::post('/User', [UsuariosController::class,'cadastroUsuario'])->name('cadastroUsuario');
 
-Route::post('/eventos', [EventosController::class,'criarEventos']);
+Route::post('/eventos', [EventosController::class,'criarEventos'])->name('criarEventos');
+
+Route::get('/eventos/{id}', [EventosController::class,'detalhesEventos'])->name('detalhesEventos');
 
 Route::post('/acesso', [AcessoAoSistemaController::class, 'login'])->name('acessoSistema');
 
