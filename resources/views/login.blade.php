@@ -8,12 +8,12 @@
 
 </head>
 <body>
- 
+
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
-  
+
   <style>@import url('://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css');</style>
-  
+
   <div class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
       <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
           <div class="md:flex w-full">
@@ -24,7 +24,7 @@
                   <div class="text-center mb-10">
                       <h1 class="font-bold text-3xl text-gray-900">LOGIN</h1>
                       <p>Faça o login da sua conta</p>
-                      <p>Ainda não tem cadastro clique <a href="{{route('cadastro')}}">aqui</a></p>
+                      <p>Ainda não tem cadastro clique <a class="text-indigo-500" href="{{route('cadastro')}}">aqui</a></p>
                   </div>
                   <div>
                 @if ($errors->any())
