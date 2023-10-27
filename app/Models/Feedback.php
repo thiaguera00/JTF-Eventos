@@ -11,6 +11,8 @@ class Feedback extends Model
 
     protected $table = 'feedback';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'id_evento',
         'nota',

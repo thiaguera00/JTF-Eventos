@@ -10,8 +10,8 @@ class FeedbackController extends Controller
     public function criarFeedback(Request $request)
     {
         $feed = Feedback::create([
-            'id_evento' => $request->id,
-            'nota' => $request->nota,
+            'id_evento' => 2,
+            'nota' => 10,
             'comentario' => $request->comentario
         ]);
 

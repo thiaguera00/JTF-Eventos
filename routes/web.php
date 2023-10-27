@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AcessoAoSistemaController;
 use App\Http\Controllers\EventosController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,13 @@ Route::get('/editaEvento', function () {
     return view('editaEvento');
 })->name('editaEvento');
 
+Route::get('/feedback', function () {
+    return view('criarFeed');
+})->name('feedback');
+
 Route::post('/User', [UsuariosController::class,'cadastroUsuario'])->name('cadastroUsuario');
+
+Route::post('/criarFeed', [FeedbackController::class,'criarFeedback'])->name('criarFeedback');
 
 Route::post('/eventos', [EventosController::class,'criarEventos'])->name('criarEventos');
 

@@ -7,10 +7,7 @@
     @vite('resources/css/app.css')
     @vite('resources/assets/SymplaEventTicket.jpeg')
 </head>
-
 <body>
-
-    <!-- Header -->
     <header class="">
         <nav class="flex items-center justify-start flex-row bg-white drop-shadow-md md:shadow-indigo-500/40">
 
@@ -43,45 +40,30 @@
             </form>
             <!-- Barra de Pesquisa -->
 
-            <a type="submit"
-                class="block mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
-                href="{{route('cadastrarEvento')}}"
-                >
-                Cadastrar Evento
-          </a>
-
-          <a type="submit"
-          class="block mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
-          href="{{route('feedback')}}"
-          >
-          Criar Feedback
-    </a>
-
         </nav>
     </header>
-
-    <!-- Cards -->
-    <div class="flex flex-row flex-wrap justify-center mb-40">
-        <!-- Card 1-->
-
-        @foreach ($eventos as $evento)
-            <div class="flex-col max-w-xs rounded overflow-hidden shadow-lg mt-10 mx-10">
-                <div>
-                    <a href="{{ route('detalhes.eventos', ['id' => $evento->id]) }}"">
-                        <img src="symplaeventticket.jpeg" alt="evento">
-                    </a>
-                </div>
-                <div class="px-6 pt-8">
-                    <div class="font-bold text-xl mb-2">{{ $evento->nome }}</div>
-                </div>
-            <p class=" px-6 py-4 text-lg mb-2">{{ $evento->endereco}}</p>
+<div class="flex justify-center">
+    <form action="{{route('criarFeedback')}}" method="post">
+        @csrf
+    <div class="relative max-w-sm m-10 justify-center">
+        <label for="">Comentario</label>
+        <div class="relative max-w-sm">
+            <div
+            class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <i class="fas fa-calendar text-gray-500 dark:text-gray-400 text-lg"></i>
         </div>
-        <!-- Card 1-->
-
-        @endforeach
-            </div>
-            <!-- Cards -->
-
+        <input datepicker datepicker-format="dd/mm/yyyy" type="text"
+                class=" border-2 border-gray-300 text-gray-700 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                placeholder="Adorei" name="comentario">
+        </div>
+        <div class="m-10">
+            <button type="submit"
+            class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold ">
+            Enviar
+        </button>
+    </div>
+</form>
+</div>
+</div>
 </body>
-
 </html>
