@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [EventosController::class,'listarEventos']);
+Route::get('/', [EventosController::class,'listarEventos']
+)->name('eventos');
 
 Route::get('/cadastrarEvento', function () {
     return view('cadastroEventos');
