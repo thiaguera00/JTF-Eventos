@@ -9,7 +9,16 @@
 </head>
 
 <body>
-  <!-- Header -->
+  <h1>Lista de Eventos</h1>
+
+    <ul>
+      @foreach($eventos as $evento)
+      <li>
+          <a href="{{ route('detalhes.eventos', ['id' => $evento->id]) }}">{{ $evento->nome }}</a>
+      </li>
+  @endforeach
+    </ul>
+  {{-- <!-- Header -->
   <header class="">
     <nav class="flex items-center justify-start flex-row bg-white drop-shadow-md md:shadow-indigo-500/40">
 
@@ -128,7 +137,7 @@
     </div>
     <!-- Card 6-->
 
-  </div>
+  </div> --}}
   <!-- Cards -->
 
 </body>

@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('eventos');
-})->name('eventos');
+Route::get('/', [EventosController::class,'listarEventos']);
 
 Route::get('/cadastrarEvento', function () {
     return view('cadastroEventos');
@@ -41,7 +39,7 @@ Route::post('/User', [UsuariosController::class,'cadastroUsuario'])->name('cadas
 
 Route::post('/eventos', [EventosController::class,'criarEventos'])->name('criarEventos');
 
-Route::get('/eventos/{id}', [EventosController::class,'detalhesEventos'])->name('detalhesEventos');
+Route::get('/eventos/{id}', [EventosController::class,'visualizarEvento'])->name('detalhes.eventos');
 
 Route::post('/acesso', [AcessoAoSistemaController::class, 'login'])->name('acessoSistema');
 

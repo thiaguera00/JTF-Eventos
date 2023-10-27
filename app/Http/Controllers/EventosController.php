@@ -7,10 +7,23 @@ use Illuminate\Http\Request;
 
 class EventosController extends Controller
 {
+    public function visualizarEvento(int $id)
+    {
+        $eventos = Eventos::find($id);
+
+        if ($eventos) {
+            return view('detalhesEventos', ['eventos' => $eventos]);
+        }
+
+        return abort(404);
+
+    }
 
     public function listarEventos()
     {
-        return Eventos::all()->get;
+        $eventos = Eventos::all();
+
+        return view('eventos', ['eventos' => $eventos]);
     }
     public function criarEventos(Request $request)
     {
