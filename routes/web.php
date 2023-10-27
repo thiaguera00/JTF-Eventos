@@ -29,6 +29,10 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
+Route::get('/editaEvento', function () {
+    return view('editaEvento');
+})->name('editaEvento');
+
 Route::post('/User', [UsuariosController::class,'cadastroUsuario'])->name('cadastroUsuario');
 
 Route::post('/eventos', [EventosController::class,'criarEventos']);
