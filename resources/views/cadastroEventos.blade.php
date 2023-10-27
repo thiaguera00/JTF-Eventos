@@ -74,7 +74,7 @@
                                 <label for="turno" class="text-gray-600 text-xs font-semibold mb-2 ">Escolha um
                                     turno</label>
                                 <select id="countries"
-                                    class="px-3 py-3 border-2 border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-indigo-500 block w-full p-2.5 ">
+                                    class="px-3 py-3 border-2 border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-indigo-500 block w-full p-2.5 " name="turno">
                                     <option selected>Escolha um turno</option>
                                     <option value="matutino">Matutino</option>
                                     <option value="vespertino">vespertino</option>
@@ -126,7 +126,7 @@
                             <div class="flex items-center mb-4">
                                 <input id="default-checkbox" type="checkbox" value="Iluminacao"
                                     class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 ">
-                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 ">
+                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 " name="tipo">
                                     Iluminação
                                 </label>
                             </div>
@@ -134,14 +134,14 @@
                             <div class="flex items-center mb-4">
                                 <input id="default-checkbox" type="checkbox" value="CaixaSom"
                                     class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 ">
-                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 ">
+                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 " name="tipo">
                                     Caixas de Som
                                 </label>
                             </div>
 
                             <div class="flex items-center mb-4">
                                 <input id="default-checkbox" type="checkbox" value="Microfone"
-                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 ">
+                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 " name="tipo">
                                 <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 ">
                                     Microfone
                                 </label>
