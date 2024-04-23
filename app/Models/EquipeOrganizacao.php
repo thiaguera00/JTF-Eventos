@@ -12,6 +12,7 @@ class EquipeOrganizacao extends Model
     public $timestamps = false;
     
     protected $table = 'equipe_organizacao';
+    protected $primaryKey = 'idEquipeOrganizacao';
 
     protected $fillable = [
         'id_usuario',
@@ -21,6 +22,6 @@ class EquipeOrganizacao extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usuarios::class, 'id_usuario', 'id');
+        return $this->belongsTo(Usuarios::class, 'idUsuario', 'id');
     }
 }

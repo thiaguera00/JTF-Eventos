@@ -12,10 +12,10 @@ class Equipamento extends Model
     public $timestamps = false;
 
     protected $table = 'equipamento';
-
+    protected $primaryKey = 'idEquipamento';
     protected $fillable = [
-        'id_evento',
-        'id_equipe_organizacao',
+        'idEvento',
+        'idEquipeOrganizacao',
         'tipo',
         'descricao',
         'disponivel',
@@ -23,11 +23,11 @@ class Equipamento extends Model
 
     public function evento()
     {
-        return $this->belongsTo(Eventos::class, 'id_evento', 'id');
+        return $this->belongsTo(Eventos::class, 'idEvento', 'id');
     }
 
     public function equipeOrganizazao()
     {
-        return $this->belongsTo(EquipeOrganizacao::class, 'id_equipe_organizacao', 'id');
+        return $this->belongsTo(EquipeOrganizacao::class, 'idEquipeOrganizacao', 'id');
     }
 }

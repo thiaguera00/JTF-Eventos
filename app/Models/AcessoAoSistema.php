@@ -12,6 +12,7 @@ class AcessoAoSistema extends Authenticatable
     public $timestamps = false;
     
     protected $table = 'acesso_sistema';
+    protected $primaryKey = 'idAcessoSistema';
 
     protected $fillable = [
         'login',

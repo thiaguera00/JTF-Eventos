@@ -67,7 +67,7 @@
         @foreach ($eventos as $evento)
             <div class="flex-col max-w-xs rounded overflow-hidden shadow-lg mt-10 mx-10">
                 <div>
-                    <a href="{{ route('detalhes.eventos', ['id' => $evento->id]) }}"">
+                    <a href="{{ route('detalhes.eventos', ['idEvento' => $evento->idEvento]) }}"">
                         <img src="symplaeventticket.jpeg" alt="evento">
                     </a>
                 </div>

@@ -47,13 +47,13 @@ Route::post('/criarFeed', [FeedbackController::class,'criarFeedback'])->name('cr
 
 Route::post('/eventos', [EventosController::class,'criarEventos'])->name('criarEventos');
 
-Route::get('/eventos/{id}', [EventosController::class,'visualizarEvento'])->name('detalhes.eventos');
+Route::get('/eventos/{idEvento}', [EventosController::class,'visualizarEvento'])->name('detalhes.eventos');
 
-Route::post('/eventos/editar/{id}', [EventosController::class, 'editarEvento'])->name('editarEvento.post');
+Route::post('/eventos/editar/{idEvento}', [EventosController::class, 'editarEvento'])->name('editarEvento.post');
 
-Route::post('/eventos/excluir/{id}', [EventosController::class, 'excluirEvento'])->name('excluir.eventos');
+Route::post('/eventos/excluir/{idEvento}', [EventosController::class, 'excluirEvento'])->name('excluir.eventos');
 
 Route::post('/acesso', [AcessoAoSistemaController::class, 'login'])->name('acessoSistema');
 
-Route::get('/eventos/editar/{id}', [EventosController::class, 'editarEventoForm'])->name('editarEvento');
+Route::get('/eventos/editar/{idEvento}', [EventosController::class, 'editarEventoForm'])->name('editarEvento');
 

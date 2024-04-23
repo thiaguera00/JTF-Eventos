@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Equipamento;
 use App\Models\Eventos;
 use App\Models\Sessoes;
-use Carbon\Carbon;
+use App\Services\EventosService;
 use Illuminate\Http\Request;
 
 class EventosController extends Controller
 {
-    public function visualizarEvento(int $id)
+    protected $eventosService;
+    public function __construct(EventosService $eventosService)
     {
-        $eventos = Eventos::find($id);
+        $this->eventosService = $eventosService;
+    }
+
+    public function visualizarEvento(int $idEvento)
+    {
+        $eventos = Eventos::find($idEvento);
 
         if ($eventos) {
             return view('detalhesEventos', ['eventos' => $eventos]);
@@ -22,9 +28,9 @@ class EventosController extends Controller
 
     }
 
-    public function editarEventoForm(int $id)
+    public function editarEventoForm(int $idEvento)
     {
-        $eventos = Eventos::find($id);
+        $eventos = Eventos::find($idEvento);
 
         if ($eventos) {
             return view('editarEventos', ['eventos' => $eventos]);
@@ -40,39 +46,20 @@ class EventosController extends Controller
         return view('eventos', ['eventos' => $eventos]);
     }
     public function criarEventos(Request $request)
-    {
-       $request->validate([
-        'nome' => 'required',
-        'endereco' => 'required',
-        'descricao' => 'required',
-        'capacidadeMaxima' => 'required',
-       ]);
-
-        $eventos = Eventos::create([
-            'nome' => $request->nome,
-            'endereco' => $request->endereco,
-            'descricao' => $request->descricao,
-            'capacidadeMaxima' => $request->capacidadeMaxima,
-            'data' => Carbon::now()->format('Y-m-d'),
+    { 
+        $data = $request->only([
+            'nome', 
+            'endereco', 
+            'descricao', 
+            'capacidadeMaxima', 
+            'turno', 
+            'tipo'
         ]);
-
-        if ($eventos) {
-            Sessoes::create([
-                'id_evento' => $eventos->id,
-                'turno' => $request->turno,
-            ]);
-
-            Equipamento::create([
-                'id_equipe_organizacao' => 1,
-                'id_evento' => $eventos->id,
-                'tipo' => $request->tipo,
-                'descricao' => 'equipamento para evento',
-                'disponivel' => false
-            ]);
-
+        
+        if ($this->eventosService->criarEvento($data)) {
             return redirect()->route('eventos');
         } else {
-            return redirect()->back()->withErrors(['error' => 'Credencias fornecidas incorretas']);
+            return redirect()->back()->withErrors(['error' => 'Credenciais fornecidas incorretas']);
         }
     }
 
@@ -103,8 +90,21 @@ class EventosController extends Controller
 
     public function excluirEvento(Request $request)
     {
-      Eventos::destroy($request->id);
+        try {
+            Equipamento::where('idEvento', $request->idEvento)->delete();
 
-      return redirect()->route('eventos');
+            Sessoes::where('idEvento', $request->idEvento)->delete();
+            
+            $evento = Eventos::findOrFail($request->idEvento);
+            
+            if ($evento->delete()) {
+                return redirect()->route('eventos')->with('success', 'Evento excluído com sucesso.');
+            }
+
+            return redirect()->route('eventos')->with('error', 'Erro ao excluir o evento.');
+        } catch (\Exception $e) {
+            return redirect()->route('eventos')->with('error', 'Erro ao excluir o evento: ' . $e->getMessage());
+        }
     }
+
 }

@@ -125,31 +125,32 @@
                         <div>
                             <div class="flex items-center mb-4">
                                 <input id="default-checkbox" type="checkbox" value="Iluminacao"
-                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 ">
-                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 " name="tipo">
+                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 " name="tipo[]">
+                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 " >
                                     Iluminação
                                 </label>
                             </div>
 
                             <div class="flex items-center mb-4">
                                 <input id="default-checkbox" type="checkbox" value="CaixaSom"
-                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 ">
-                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 " name="tipo">
+                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 " name="tipo[]">
+                                <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 " >
                                     Caixas de Som
                                 </label>
                             </div>
 
                             <div class="flex items-center mb-4">
                                 <input id="default-checkbox" type="checkbox" value="Microfone"
-                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 " name="tipo">
+                                    class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 rounded focus:ring-indigo-500 focus:ring-2 "  name="tipo[]">
                                 <label for="default-checkbox" class="ml-2 text-sm font-medium text-neutral-700 ">
                                     Microfone
                                 </label>
                             </div>
                         </div>
                         <button type="submit"
-                            class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold ">Cadastrar
-                            Evento</button>
+                            class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold ">
+                            Cadastrar Evento
+                        </button>
                     </form>
                 </div>
             </div>

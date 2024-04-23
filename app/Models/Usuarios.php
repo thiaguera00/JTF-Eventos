@@ -10,6 +10,7 @@ class Usuarios extends Model
     use HasFactory;
 
     public $timestamps = false;
+    protected $primaryKey = 'idUsuario';
     
     protected $fillable = [
         'cpf',

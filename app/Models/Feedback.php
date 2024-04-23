@@ -10,18 +10,19 @@ class Feedback extends Model
     use HasFactory;
 
     protected $table = 'feedback';
+    protected $primaryKey = 'idFeedback';
 
     public $timestamps = false;
 
     protected $fillable = [
-        'id_evento',
+        'idEvento',
         'nota',
         'comentario'
     ];
     
     public function evento()
     {
-        return $this->belongsTo(Eventos::class, 'id_evento', 'id');
+        return $this->belongsTo(Eventos::class, 'idEvento', 'id');
     }
 
 }

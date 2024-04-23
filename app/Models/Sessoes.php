@@ -12,14 +12,16 @@ class Sessoes extends Model
     public $timestamps = false;
     
     protected $table = 'sessoes';
+    protected $primaryKey = 'idSessao';
 
     protected $fillable = [
-        'id_evento',
+        'idEvento',
         'turno'
     ];
 
     public function evento()
     {
-        return $this->belongsTo(Eventos::class, 'id_evento', 'id');
+        return $this->belongsTo(Eventos::class, 'idEvento', 'id')->onDelete('cascade');
     }
+    
 }

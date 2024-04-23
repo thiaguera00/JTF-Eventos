@@ -96,7 +96,7 @@
                             <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                                 Informações do Evento
                             </h6>
-                            <form action="{{ route('editarEvento.post', ['id' => $eventos->id]) }}" method="post">
+                            <form action="{{ route('editarEvento.post', ['idEvento' => $eventos->idEvento]) }}" method="post">
                                 @csrf
                                 <div class="flex flex-wrap">
                                     <div class=" w-full lg:w-6/12 px-4">
@@ -165,7 +165,7 @@
                                         Editar Evento
                                     </button>
                             </form>
-                            <form action="{{ route('excluir.eventos', ['id' => $eventos->id]) }}" method="post">
+                            <form action="{{ route('excluir.eventos', ['idEvento' => $eventos->idEvento]) }}" method="post">
                                 @csrf
                                 <button type="submit"
                                     class="block w-full max-w-md mx-5 bg-red-500 hover:bg-red-700 focus:bg-red-700 text-white rounded-lg px-3 py-3 font-semibold ">Deletar</button>
@@ -229,12 +229,12 @@
 
         <div class="flex flex-row gap-3">
             <h3 class="font-bold">Nota: </h3>
-            <p>5</p>
+            <p></p>
         </div>
 
         <div class="flex flex-col">
             <h2 class="font-bold">Comentário:</h2>
-            <p class="max-w-2xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias esse earum, aspernatur ratione iure error enim sint at saepe. Illum aliquam similique neque culpa iusto libero exercitationem qui amet magni.</p>
+            <p class="max-w-2xl"></p>
         </div>
 
     </div>

@@ -12,7 +12,7 @@ class Eventos extends Model
     public $timestamps = false;
     
     protected $table = 'eventos';
-    
+    protected $primaryKey = 'idEvento';
     protected $fillable = [
         'nome',
         'endereco',
