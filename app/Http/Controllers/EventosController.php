@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Equipamento;
 use App\Models\Eventos;
-use App\Models\Sessoes;
 use App\Services\EventosService;
 use Illuminate\Http\Request;
 
 class EventosController extends Controller
 {
     protected $eventosService;
+
     public function __construct(EventosService $eventosService)
     {
         $this->eventosService = $eventosService;
@@ -65,46 +64,30 @@ class EventosController extends Controller
 
     public function editarEvento(Request $request, int $id)
     {
-        $request->validate([
-            'nome' => 'required',
-            'endereco' => 'required',
-            'descricao' => 'required',
-            'capacidadeMaxima' => 'required',
+        $data = $request->only([
+            'nome',
+            'endereco',
+            'descricao',
+            'capacidadeMaxima',
         ]);
     
-        $eventos = Eventos::find($id);
+        $result = $this->eventosService->editarEvento($id, $data);
     
-        if ($eventos) {
-            $eventos->update([
-                'nome' => $request->nome,
-                'endereco' => $request->endereco,
-                'descricao' => $request->descricao,
-                'capacidadeMaxima' => $request->capacidadeMaxima
-            ]);
-    
+        if ($result) {    
             return redirect()->route('eventos');
         } else {
             return redirect()->back()->withErrors(['error' => 'Evento não encontrado']);
         }
     }
 
-    public function excluirEvento(Request $request)
+    public function excluirEvento(int $id)
     {
-        try {
-            Equipamento::where('idEvento', $request->idEvento)->delete();
-
-            Sessoes::where('idEvento', $request->idEvento)->delete();
-            
-            $evento = Eventos::findOrFail($request->idEvento);
-            
-            if ($evento->delete()) {
-                return redirect()->route('eventos')->with('success', 'Evento excluído com sucesso.');
-            }
-
-            return redirect()->route('eventos')->with('error', 'Erro ao excluir o evento.');
-        } catch (\Exception $e) {
-            return redirect()->route('eventos')->with('error', 'Erro ao excluir o evento: ' . $e->getMessage());
+        $result = $this->eventosService->excluirEvento($id);
+        
+        if ($result) {
+            return redirect()->route('eventos');
+        } else {
+            return redirect()->back()->withErrors(['error' => 'Evento não encontrado']);
         }
     }
-
 }
