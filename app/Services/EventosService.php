@@ -18,7 +18,7 @@ class EventosService
             'capacidadeMaxima' => $data['capacidadeMaxima'],
             'data' => Carbon::now()->format('Y-m-d'),
         ]);
-        // dd($eventos);
+
         if ($eventos) {
             Sessoes::create([
                 'idEvento' => $eventos->idEvento,
