@@ -12,14 +12,14 @@
 <body>
 
     <!-- Header -->
-    <header class="">
+    <header class="w-auto">
         <nav class="flex items-center justify-start flex-row bg-white drop-shadow-md md:shadow-indigo-500/40">
 
             <!-- Logo -->
             <div class="flex basis-1/4 pl-10">
-                <a href="{{ route('eventos') }}"><img
-                        src="https://lh3.googleusercontent.com/pw/ADCreHcQluDNOUOUg0nFbhg_GJFpItqroLHYHuXRuRg1kk926FRoNRjopXrLZnpWqz6Jge8a_1HlL-1abxMISjzqwjSGHzf-WAeKhibL0GeXmoAirmJU_5pPehx5yGVvBZdXdkF9JgRZ4DkEFSRfEIWeJvkaEKQvXPl1DnrywgMs8wB7rsXHKN-pZXfOdcTcZ3-V9bBaG7ylN3-fyEatjxkPYKG8FFbgdF5fVVE5RCYIZwGE9VNlQAtrwWGEBI_1ihZCJIidJhGSmNOPv3_aaRp2jUI42efNTuhTVGdATS-eirJl5UuvCuS-GRiCi5WBFYcy9TDi0mGdsKI-mNq1OImewoWfLYrPo3XEfqoGi4cEfKueigT55GFfN6jSTE9vZW-GW4BA7rujDrPmjcxIJ-Evd7KcqOURK6OKZi2bUsqeysAe8__HmO7PSefFgZMPrY7gjJHdalkXwOTCnsFFMJJksS49S-RPx4nBCUdMlGZohJFBDA_nQnqVDkUWlXSHF2exBqjzRddgL2zMF0dRdM_01iLBpZapsbdsulgClEKWxW-eaR-wChwLPHBR-PwwwYTz0smcBL6bnY0AO5uvUxH8sHfa94B1MLDsU59xDYrgVFgVOWhY2kNJ5VUWp_gaO3kDPKzv9gvn_2HwnmeBBizA6lJoaX64xgDs7AY1NtGQxc-w2oSabI1YR7HmmGeFDwhsJo7iZOdoRSjA10SAiPDlAdo3hx35iEzmeLrpDVHLc7iZMJbDmalXRZT_bcMX686qVdARB8jqElTsY4eELYuTwcpP8y7p2ysOmlEQORzgKIewEIhw6SWi8fOMBOtsT83I12667YMPq7EdAOcQoV0maqRWcyMdWGB8dmldCCcGMJ8xZdqOT9nCfvDtvAgbIYhUcC4S2HoOq8PiWuxs_IVUczs=w500-h500-s-no-gm?authuser=0"
-                        alt="logo" class="w-32"></a>
+                <a href="{{route('eventos')}}">
+                    <img src="JTFEventosLogo.png" alt="JTF Eventos Logo" class="w-32">
+                </a>
             </div>
             <!-- Logo -->
 
@@ -34,24 +34,15 @@
                                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                     </div>
-                    <input type="search" id="default-search"
-                        class="block w-full p-4 pl-10 text-sm text-gray-900 border-2 border-gray-300 rounded-lg bg-gray-50 focus:border-indigo-500"
-                        placeholder="Search Mockups, Logos..." required>
-
-                    <button type="submit"
-                        class="text-white absolute right-2.5 bottom-2.5 bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-500 font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
+                    <input 
+                        type="search" id="default-search"
+                        class=" w-full min-w-fit p-4 pl-10 text-sm text-gray-900 border-2 border-gray-300 rounded-lg bg-gray-50 focus:border-indigo-500"
+                        placeholder="Encontre eventos!"
+                        required
+                    >
                 </div>
             </form>
             <!-- Barra de Pesquisa -->
-
-            <button type="submit"
-                class="block mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold "
-                data-modal-toggle="authentication-modal">
-                Editar Evento
-            </button>
-
-        </nav>
-    </header>
 
     <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
 

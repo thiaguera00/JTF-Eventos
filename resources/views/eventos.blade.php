@@ -9,9 +9,8 @@
 </head>
 
 <body>
-
     <!-- Header -->
-    <header class="">
+    <header class="w-auto">
         <nav class="flex items-center justify-start flex-row bg-white drop-shadow-md md:shadow-indigo-500/40">
 
             <!-- Logo -->
@@ -33,29 +32,29 @@
                                 d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                         </svg>
                     </div>
-                    <input type="search" id="default-search"
-                        class="block w-full p-4 pl-10 text-sm text-gray-900 border-2 border-gray-300 rounded-lg bg-gray-50 focus:border-indigo-500"
-                        placeholder="Search Mockups, Logos..." required>
-
-                    <button type="submit"
-                        class="text-white absolute right-2.5 bottom-2.5 bg-indigo-500 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-500 font-medium rounded-lg text-sm px-4 py-2 ">Search</button>
+                    <input 
+                        type="search" id="default-search"
+                        class=" w-full min-w-fit p-4 pl-10 text-sm text-gray-900 border-2 border-gray-300 rounded-lg bg-gray-50 focus:border-indigo-500"
+                        placeholder="Encontre eventos!"
+                        required
+                    >
                 </div>
             </form>
             <!-- Barra de Pesquisa -->
-
+        
             <a type="submit"
-                class="block mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
+                class=" pl-3 mx-auto focus:bg-indigo-700 text-indigo-500 font-semibold text-sm"
                 href="{{route('cadastrarEvento')}}"
                 >
                 Cadastrar Evento
-          </a>
+            </a>
 
-          <a type="submit"
-          class="block mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold"
-          href="{{route('feedback')}}"
-          >
-          Criar Feedback
-    </a>
+            <a type="submit"
+                class=" pl-3 mx-auto focus:bg-indigo-700 text-indigo-500 font-semibold text-sm"
+                href="{{route('feedback')}}"
+                >
+                Criar Feedback
+            </a>
 
         </nav>
     </header>
