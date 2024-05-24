@@ -15,12 +15,12 @@
     <header class="w-auto">
         <nav class="flex items-center justify-start flex-row bg-white drop-shadow-md md:shadow-indigo-500/40">
 
-            <!-- Logo -->
-            <div class="flex basis-1/4 pl-10">
-                <a href="{{route('eventos')}}">
-                    <img src="JTFEventosLogo.png" alt="JTF Eventos Logo" class="w-32">
-                </a>
-            </div>
+        <div class="flex basis-1/4 pl-10">
+            <a href="{{ route('eventos') }}">
+                <img src="{{ asset('JTFEventosLogo.png') }}" alt="JTF Eventos Logo" class="w-32">
+            </a>
+        </div>
+
             <!-- Logo -->
 
             <!-- Barra de Pesquisa -->
@@ -43,8 +43,14 @@
                 </div>
             </form>
             <!-- Barra de Pesquisa -->
-
-    <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.2.0/dist/flowbite.min.css" />
+        
+            <button type="submit"
+                class="block mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold "
+                data-modal-toggle="authentication-modal">
+                Editar Evento
+            </button>
+        </nav>
+    </header>
 
     <!-- This is an example component -->
     <div class="max-w-2xl mx-auto">

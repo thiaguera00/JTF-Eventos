@@ -62,6 +62,8 @@
     <!-- Cards -->
     <div class="flex flex-row flex-wrap justify-center mb-40">
         <!-- Card 1-->
+        Bem vindo(a), {{auth()->user()->login}}
+        
 
         @foreach ($eventos as $evento)
             <div class="flex-col max-w-xs rounded overflow-hidden shadow-lg mt-10 mx-10">
