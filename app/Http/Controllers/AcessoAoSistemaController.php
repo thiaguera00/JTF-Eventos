@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\AcessoAoSistema;
@@ -8,19 +7,24 @@ use Illuminate\Support\Facades\Auth;
 
 class AcessoAoSistemaController extends Controller
 {
-    public function login(Request $request)
+    public function auth(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
+        $this->validate($request, [
+            'login' => 'required',
             'senha' => 'required'
         ]);
 
-       $acesso = AcessoAoSistema::where('login', $request->email)->first();
+       
+        $acesso = AcessoAoSistema::where('login', $request->login)->first();
         
-       if ($acesso && $acesso->senha === $request->senha ) {
-        return redirect()->route('eventos');
-       }
+        if ($acesso && password_verify($request->senha, $acesso->senha)) {
+           
+            Auth::login($acesso);
 
-        return redirect()->route('login')->withErrors(['login' => 'Crendencias invalidas']);
-     }
+            
+            return redirect()->intended(route('eventos'));
+        }
+
+        return redirect()->route('login')->withErrors(['login' => 'Credenciais inválidas']);
+    }
 }

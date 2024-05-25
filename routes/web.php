@@ -4,6 +4,7 @@ use App\Http\Controllers\AcessoAoSistemaController;
 use App\Http\Controllers\EventosController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\UsuariosController;
+use App\Http\Middleware\AuthenticateUserMiddleware;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,8 +19,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [EventosController::class,'listarEventos']
-)->name('eventos');
 
 Route::get('/cadastrarEvento', function () {
     return view('cadastroEventos');
@@ -45,6 +44,10 @@ Route::post('/User', [UsuariosController::class,'cadastroUsuario'])->name('cadas
 
 Route::post('/criarFeed', [FeedbackController::class,'criarFeedback'])->name('criarFeedback');
 
+Route::middleware([AuthenticateUserMiddleware::class, 'cache.headers:private'])->group(function () {
+    Route::get('/', [EventosController::class,'listarEventos'])->name('eventos');
+});
+
 Route::post('/eventos', [EventosController::class,'criarEventos'])->name('criarEventos');
 
 Route::get('/eventos/{idEvento}', [EventosController::class,'visualizarEvento'])->name('detalhes.eventos');
@@ -53,7 +56,7 @@ Route::post('/eventos/editar/{idEvento}', [EventosController::class, 'editarEven
 
 Route::post('/eventos/excluir/{idEvento}', [EventosController::class, 'excluirEvento'])->name('excluir.eventos');
 
-Route::post('/acesso', [AcessoAoSistemaController::class, 'login'])->name('acessoSistema');
+Route::post('/acesso', [AcessoAoSistemaController::class, 'auth'])->name('acessoSistema');
 
 Route::get('/eventos/editar/{idEvento}', [EventosController::class, 'editarEventoForm'])->name('editarEvento');
 

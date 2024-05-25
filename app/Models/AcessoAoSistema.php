@@ -19,5 +19,5 @@ class AcessoAoSistema extends Authenticatable
         'senha'
     ];
 
-    protected $password = 'senha';
+    protected $passwords = 'senha';
 }

@@ -98,7 +98,7 @@
                   Usuário
                   </span>
                   <span class="truncate text-sm text-zinc-500">
-                  email@email.com
+                  {{auth()->user()->login}}
                   </span>
                </div>
 
